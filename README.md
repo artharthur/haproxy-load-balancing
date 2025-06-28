@@ -26,3 +26,14 @@ sudo systemctl restart haproxy
 
 # Тест round-robin
 ./test_haproxy.sh
+
+## Задание 2
+
+**Тема:** HTTP Weighted Round-Robin на L7 по домену example.local
+
+**Файлы:**
+- `05_hosts.png` — строка `127.0.0.1 example.local` в `/etc/hosts`  
+- `06_servers.png` — три Python-сервера на портах 8000, 8001, 8002 (`ps aux | grep http.server`)  
+- `07_haproxy_cfg2.png` — блок для задания 2 в `/etc/haproxy/haproxy.cfg` (HTTP-фронтенд перед TCP)  
+- `08_test_example.png` — вывод теста с `Host: example.local`, показывающий пропорцию 2:3:4  
+- `08_test_other.png` — вывод `curl -I http://localhost/`, где видно `HTTP/1.0 400 Bad Request`
